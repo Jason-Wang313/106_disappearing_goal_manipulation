@@ -1,26 +1,25 @@
-        # Hostile Reviewer Response
+# Hostile Reviewer Response
 
-        Paper: 106 Disappearing Goal Manipulation
+Paper: 106 Disappearing Goal Manipulation
 
-        ## Strongest Technical Threats
-        - A Task and Motion Planning Framework for Partially Observable Household Manipulation Scenes (2025)
-- U-LAG: Uncertainty-Aware, Lag-Adaptive Goal Retargeting for Robotic Manipulation (2025)
-- The spectral linear filter method for a stochastic optimal control problem of partially observable systems (2020)
-- Neurons of rat motor cortex become active during both grasping execution and grasping observation (2021)
-- MAP-VLA: Memory-Augmented Prompting for Vision-Language-Action Model in Robotic Manipulation (2025)
-- Cooperative Planning and Plan Execution in Partially Observable Dynamic Domains (2005)
-- Learning to Recover from Plan Execution Errors during Robot Manipulation: A Neuro-symbolic Approach (2024)
-- PI-VLA: Adaptive Symmetry-Aware Decision-Making for Long-Horizon Vision-Language-Action Manipulation (2026)
+## Strongest Technical Threats
 
-        ## ICLR Main Response
-        A hostile ICLR reviewer would be correct to reject this as a main-conference submission. The v2 paper has reproducible synthetic evidence and careful limitations, but it does not contain the real robot, high-fidelity simulator, learned model, or manual related-work depth needed for the ICLR main track.
+- POMDP and partially observable task-and-motion planning already model hidden state and belief-aware action choice.
+- Active perception and object-search methods already reacquire occluded goals through camera or viewpoint actions.
+- Goal-conditioned RL and hindsight relabeling already use alternative goals and sparse reward relabeling.
+- VLA and language-conditioned manipulation systems already condition policies on changing task prompts and scene context.
+- Goal retargeting and failure-aware manipulation baselines already handle some moved, blocked, or invalid goals.
 
-        ## Honest Action
-        The paper is marked `KILL_ARCHIVE`. This avoids converting a generated workshop-style idea into an overstated main-conference claim.
+## ICLR Main Response
 
-        ## What Would Be Needed To Revive
-        - Real robot or high-fidelity benchmark experiments.
-        - Implemented model and baselines, not synthetic probability tables.
-        - Manual full-paper related-work audit.
-        - Paper-specific writing and figures.
-        - Evidence that the core mechanism is learned and useful under deployment shift.
+The v4 rebuild narrows the claim to goal-validity belief revision under disappearance. The proposed method is not a generic POMDP planner, not a pure active-view baseline, and not just goal relabeling. It explicitly separates "unseen but still valid" from "physically invalid or changed", and it calibrates when to wait, reacquire, retarget, use a substitute goal, or abandon.
+
+The local benchmark supports that narrower boundary: proposed combined-disappearance success is `0.662 +/- 0.009` versus `0.561 +/- 0.003` for `failure_aware_manipulation_policy`; goal-validity F1 improves by `0.148`; stale-goal pursuit drops by `0.046`; unsafe reach and false abandonment both decrease; and the strongest-baseline paired comparison is 7/7 seeds in favor of the proposed method.
+
+## Remaining Hostile Review
+
+A hostile reviewer would still be right to reject a main-track submission today if it claimed deployment readiness. The evidence is local and synthetic; the baselines are diagnostic executable models rather than external robot systems; and there is no real robot or independently validated high-fidelity simulator result.
+
+## Honest Action
+
+The paper is marked `STRONG_REVISE`. Continue only if the next version adds real robot or high-fidelity external validation, implemented learned baselines, and qualitative rollouts.

@@ -1,7 +1,9 @@
 # Novelty Decision
 
-Chosen thesis: Disappearing Goal Manipulation turns the seed bet into a mechanism: Handle goals that become physically or perceptually unavailable during execution.
+Chosen thesis: Disappearing Goal Manipulation turns a partially observable manipulation problem into a goal-validity belief-revision problem.
 
-New central mechanism: Disappearing goal manipulation keeps action-critical alternatives explicit until a physical observation collapses them.
+New central mechanism: separate hidden-but-valid goals from moved, removed, changed, and substitutable goals, and use that belief to select wait, reacquire, retarget, substitute, or abandon actions.
 
-Decision: proceed as a revise/workshop-strength ICLR-style draft with synthetic but runnable evidence.
+Local result: the v4 benchmark clears the success, diagnostic, safety, pairwise, and ablation gates.
+
+Decision: STRONG_REVISE. The paper is worth continued development, but not ICLR-main ready until validated with real robot or independent high-fidelity evidence.

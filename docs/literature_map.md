@@ -1,32 +1,27 @@
-        # Literature Map
+# Literature Map
 
-        Paper: 106 disappearing_goal_manipulation
+Paper: 106 disappearing_goal_manipulation
 
-        Field box: partially observable manipulation
+Field box: partially observable manipulation, active perception, goal-conditioned robot learning, and task-and-motion planning.
 
-        Thesis: Disappearing Goal Manipulation turns the seed bet into a mechanism: Handle goals that become physically or perceptually unavailable during execution.
+Thesis: robot manipulation policies should maintain explicit goal-validity beliefs when goals disappear during execution.
 
-        ## Landscape Sweep Summary
-        The selector ranked records from the shared 500,000-record pool. The closest visible clusters are:
-        - A Task and Motion Planning Framework for Partially Observable Household Manipulation Scenes (2025)
-- U-LAG: Uncertainty-Aware, Lag-Adaptive Goal Retargeting for Robotic Manipulation (2025)
-- Learning to Recover from Plan Execution Errors during Robot Manipulation: A Neuro-symbolic Approach (2024)
-- Neurons of rat motor cortex become active during both grasping execution and grasping observation (2021)
-- Adaptive Compensation for Robotic Joint Failures Using Partially Observable Reinforcement Learning (2024)
-- Xavier: a robot navigation architecture based on partially observable Markov decision process models (1998)
-- The spectral linear filter method for a stochastic optimal control problem of partially observable systems (2020)
-- Learning for multi-robot cooperation in partially observable stochastic environments with macro-actions (2017)
-- Multimodal execution monitoring for anomaly detection during robot manipulation (2016)
-- Learning to Recover from Plan Execution Errors during Robot Manipulation: A Neuro-symbolic Approach (2024)
-- Correlation of expertise with error detection skills of force application during spinal manipulation learning* (2016)
-- Interactive Plan Execution during Human-Robot Cooperative Manipulation (2018)
+## Crowded Neighbor Clusters
 
-        ## Hidden Assumptions
-        - The executed trajectory is a sufficient training target.
-- Unobserved physical alternatives can be averaged into uncertainty.
-- Task labels capture the mechanism that caused failure.
-- A planner only needs nominal feasibility.
-- Embodiment-specific contact effects are nuisance variation.
+- POMDP and partially observable TAMP: hidden state, belief updates, replanning, and information-gathering actions.
+- Active perception and object search: camera/viewpoint actions to resolve occlusion.
+- Goal-conditioned RL: alternative goal relabeling and goal-conditioned success under sparse rewards.
+- Language/multimodal manipulation: instruction-conditioned policies that can respond to changing goals.
+- Failure-aware manipulation: recovery and safety policies for execution errors.
 
-        ## Boundary
-        The project avoids weak moves such as bigger models, generic uncertainty, or a benchmark-only contribution. It centers a mechanism-level change: Disappearing goal manipulation keeps action-critical alternatives explicit until a physical observation collapses them.
+## Hidden Assumptions Attacked
+
+- A last-seen goal remains valid until the policy reaches it.
+- Occlusion and physical invalidation can be represented by one scalar uncertainty value.
+- Retargeting is always safer than waiting or abandoning.
+- Conservative halting protects safety without causing excessive false abandonment.
+- A prompt or goal token update is enough to handle physical goal disappearance.
+
+## Boundary
+
+The project centers a mechanism-level change: keep separate belief mass for perceptual disappearance, physical invalidation, task-goal change, substitute-goal feasibility, and abandonment risk. The planner must then choose between waiting, active reacquisition, retargeting, substitute-goal execution, and abandonment.
