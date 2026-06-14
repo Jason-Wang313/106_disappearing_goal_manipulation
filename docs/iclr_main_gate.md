@@ -2,18 +2,19 @@
 
 Paper: 106 disappearing_goal_manipulation
 
-Existing v2 decision: KILL_ARCHIVE
+Previous v3 decision: KILL_ARCHIVE
 
-Gate verdict: KILL_ARCHIVE
+v4 gate verdict: STRONG_REVISE
 
-Evidence digest: bbd44f61de9b970f
+Evidence digest: disappearing-goal belief-revision benchmark with 5 tasks, 7 regimes, 5 splits, 9 methods, 7 seeds, 84 episodes/group.
 
-Fatal blockers:
-- Synthetic-only evidence.
-- Template-generated experiment and writing.
-- No real robot or high-fidelity benchmark.
-- No trained WAM/model checkpoint.
-- No implemented real baselines.
-- No manual exhaustive related-work synthesis.
+Gate outcomes:
 
-The only honest main-conference-safe decision is to archive rather than overclaim.
+- success gate: pass, proposed beats strongest non-oracle by `0.102` success.
+- diagnostic gate: pass, goal-validity F1 improves by `0.148` and stale pursuit drops.
+- safety gate: pass, unsafe reach and false abandonment fall relative to strongest non-oracle.
+- pairwise gate: pass, proposed wins 7/7 paired seeds against strongest non-oracle.
+- ablation gate: pass, full model beats the best removed component by `0.029`.
+- external-validation gate: fail, no real robot or independent high-fidelity benchmark.
+
+The only honest main-conference-safe decision is STRONG_REVISE: the mechanism is worth developing, but the paper is not yet submission-ready.

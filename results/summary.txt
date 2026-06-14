@@ -1,16 +1,50 @@
-Submission-hardening experiment for paper 106 disappearing_goal_manipulation
-Seven seeds, 600 episodes per seed, strong baselines, ablations, stress sweep, and negative cases.
-observed_only_behavior_clone hidden_mode_shift mean_success=0.4114 ci95=0.0223 tail=0.5886
-observed_only_behavior_clone combined_stress mean_success=0.3224 ci95=0.0104 tail=0.6776
-data_augmentation_wam hidden_mode_shift mean_success=0.4993 ci95=0.0241 tail=0.5007
-data_augmentation_wam combined_stress mean_success=0.4046 ci95=0.0117 tail=0.5954
-scalar_uncertainty_planner hidden_mode_shift mean_success=0.5728 ci95=0.0131 tail=0.4272
-scalar_uncertainty_planner combined_stress mean_success=0.5067 ci95=0.0297 tail=0.4933
-ensemble_disagreement_planner hidden_mode_shift mean_success=0.5819 ci95=0.0239 tail=0.4181
-ensemble_disagreement_planner combined_stress mean_success=0.5290 ci95=0.0118 tail=0.4710
-conformal_risk_filter hidden_mode_shift mean_success=0.6243 ci95=0.0214 tail=0.3757
-conformal_risk_filter combined_stress mean_success=0.5567 ci95=0.0116 tail=0.4433
-proposed_branch_mechanism hidden_mode_shift mean_success=0.6912 ci95=0.0102 tail=0.3088
-proposed_branch_mechanism combined_stress mean_success=0.6543 ci95=0.0113 tail=0.3457
-oracle_branch_upper_bound hidden_mode_shift mean_success=0.7636 ci95=0.0191 tail=0.2364
-oracle_branch_upper_bound combined_stress mean_success=0.7443 ci95=0.0129 tail=0.2557
+Paper 106 disappearing_goal_manipulation evidence rebuild
+Design: 5 tasks x 7 disappearing-goal regimes x 5 splits x 9 methods, 7 seeds, 84 episodes/group.
+Terminal decision: STRONG_REVISE
+Rationale: local disappearing-goal belief-revision evidence supports the mechanism, but real robot/external validation is missing
+
+Combined-disappearance ranking:
+oracle_goal_state_supervisor: success=0.803 +/- 0.007, goal_f1=0.710, retarget_precision=0.644, stale=0.035, unsafe=0.013, false_abandon=0.011, reappear=0.495, substitute=0.566, latency=0.568, regret=0.000
+proposed_disappearing_goal_belief_revision: success=0.662 +/- 0.009, goal_f1=0.586, retarget_precision=0.532, stale=0.087, unsafe=0.039, false_abandon=0.053, reappear=0.398, substitute=0.460, latency=0.670, regret=0.141
+failure_aware_manipulation_policy: success=0.561 +/- 0.003, goal_f1=0.439, retarget_precision=0.414, stale=0.133, unsafe=0.063, false_abandon=0.092, reappear=0.286, substitute=0.361, latency=0.789, regret=0.243
+pomdp_belief_planner: success=0.538 +/- 0.007, goal_f1=0.437, retarget_precision=0.360, stale=0.154, unsafe=0.072, false_abandon=0.094, reappear=0.284, substitute=0.300, latency=0.789, regret=0.265
+goal_retargeting_heuristic: success=0.510 +/- 0.008, goal_f1=0.358, retarget_precision=0.422, stale=0.154, unsafe=0.074, false_abandon=0.115, reappear=0.217, substitute=0.360, latency=0.859, regret=0.293
+active_viewpoint_reacquisition: success=0.504 +/- 0.006, goal_f1=0.384, retarget_precision=0.275, stale=0.181, unsafe=0.084, false_abandon=0.090, reappear=0.331, substitute=0.234, latency=0.825, regret=0.299
+uncertainty_halt: success=0.423 +/- 0.008, goal_f1=0.312, retarget_precision=0.242, stale=0.180, unsafe=0.087, false_abandon=0.146, reappear=0.167, substitute=0.187, latency=0.895, regret=0.381
+memory_only_belief_tracking: success=0.378 +/- 0.011, goal_f1=0.266, retarget_precision=0.198, stale=0.218, unsafe=0.108, false_abandon=0.145, reappear=0.130, substitute=0.143, latency=0.931, regret=0.426
+last_seen_goal_pursuit: success=0.327 +/- 0.007, goal_f1=0.142, retarget_precision=0.134, stale=0.249, unsafe=0.124, false_abandon=0.155, reappear=0.070, substitute=0.099, latency=1.029, regret=0.476
+
+Gate outcomes:
+success_gate: True
+diagnostic_gate: True
+safety_gate: True
+pairwise_gate: True
+ablation_gate: True
+success_margin_vs_strongest: 0.10184645286686111
+goal_validity_f1_delta_vs_strongest: 0.14774760832485206
+stale_goal_pursuit_delta_vs_strongest: -0.046112730806608396
+unsafe_reach_delta_vs_strongest: -0.023858114674441204
+false_abandonment_delta_vs_strongest: -0.03862973760932945
+intervention_cost_delta_vs_strongest: 0.02094740754615071
+ablation_margin_vs_best_removed_component: 0.029397473275024177
+strongest_non_oracle_baseline: failure_aware_manipulation_policy
+best_removed_component: minus_abandonment_calibration
+
+Pairwise proposed comparisons:
+active_viewpoint_reacquisition: diff=0.158 +/- 0.011, wins=7/7, decision=proposed_better
+failure_aware_manipulation_policy: diff=0.102 +/- 0.008, wins=7/7, decision=proposed_better
+goal_retargeting_heuristic: diff=0.153 +/- 0.009, wins=7/7, decision=proposed_better
+last_seen_goal_pursuit: diff=0.335 +/- 0.011, wins=7/7, decision=proposed_better
+memory_only_belief_tracking: diff=0.285 +/- 0.013, wins=7/7, decision=proposed_better
+oracle_goal_state_supervisor: diff=-0.141 +/- 0.010, wins=0/7, decision=not_decisive
+pomdp_belief_planner: diff=0.124 +/- 0.012, wins=7/7, decision=proposed_better
+uncertainty_halt: diff=0.240 +/- 0.008, wins=7/7, decision=proposed_better
+
+Ablations:
+full_disappearing_goal_belief_revision: success=0.665 +/- 0.004, goal_f1=0.586, stale=0.081, unsafe=0.038, note=all components
+minus_abandonment_calibration: success=0.636 +/- 0.005, goal_f1=0.567, stale=0.111, unsafe=0.067, note=over-pursues invalid goals or over-abandons hidden goals
+minus_substitute_goal_planner: success=0.596 +/- 0.007, goal_f1=0.554, stale=0.117, unsafe=0.055, note=cannot choose substitute goals
+minus_observation_memory_separation: success=0.590 +/- 0.006, goal_f1=0.440, stale=0.121, unsafe=0.048, note=confounds unseen goals with invalid goals
+minus_active_reacquisition: success=0.572 +/- 0.008, goal_f1=0.519, stale=0.097, unsafe=0.051, note=does not actively test occluded goals
+minus_physical_validity_test: success=0.565 +/- 0.005, goal_f1=0.444, stale=0.139, unsafe=0.068, note=cannot distinguish hidden from physically invalid
+active_perception_only: success=0.500 +/- 0.006, goal_f1=0.385, stale=0.186, unsafe=0.082, note=active viewpoint reacquisition baseline

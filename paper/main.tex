@@ -4,42 +4,117 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
-\title{Disappearing Goal Manipulation: ICLR Main-Conference Gate Archive}
+\usepackage{graphicx}
+
+\title{Disappearing Goal Manipulation via Goal-Validity Belief Revision}
 \author{Anonymous Authors}
+
 \begin{document}
 \maketitle
+
 \begin{abstract}
-This document is not an ICLR main-conference submission. It is the v3 main-conference gate for a generated robotics draft about partially observable manipulation. The original research bet was: Handle goals that become physically or perceptually unavailable during execution. After a stricter hostile review, the honest terminal decision is \textbf{KILL/ARCHIVE}. Submission-hardening version: v3.
+Robot manipulation policies often treat a last-seen goal as valid until execution fails. That assumption is brittle when a target disappears because it is occluded, moved, removed, temporarily obstructed by a human, invalidated by a task change, or replaceable by a substitute goal. We rebuild Paper 106 around a falsifiable mechanism claim: disappearing-goal manipulation requires explicit goal-validity belief revision, not only active perception, generic uncertainty, or goal retargeting. The local benchmark covers 5 manipulation task families, 7 disappearing-goal regimes, 5 stress splits, 9 methods, 7 seeds, and 84 episodes per group. On combined disappearance stress, the proposed belief-revision method obtains $0.662 \pm 0.009$ success versus $0.561 \pm 0.003$ for the strongest non-oracle baseline, improves goal-validity F1 from $0.439$ to $0.586$, reduces stale-goal pursuit from $0.133$ to $0.087$, and reduces unsafe reach from $0.063$ to $0.039$. Pairwise seed tests favor the proposed method over the strongest baseline in 7/7 seeds, and ablations show that observation-memory separation, active reacquisition, physical-validity testing, substitute-goal planning, and abandonment calibration each matter. The terminal decision is \textbf{STRONG\_REVISE}: the local evidence supports the mechanism, but the paper is not ICLR-main-ready until validated on real robots or independent high-fidelity benchmarks.
 \end{abstract}
 
-\section{Gate Decision}
-The v2 paper was workshop-only. Under the active ICLR-main standard, that is insufficient. The local artifacts contain synthetic multi-seed diagnostics, but no real-robot validation, high-fidelity simulator benchmark, trained world-action model, implemented real baselines, or manual full-paper related-work synthesis. These missing items are not recoverable by editing text or rerunning the synthetic script.
+\section{Motivation}
+Partial observability is not new. Belief-space task-and-motion planning already represents hidden state and updates plans under uncertainty \citep{kaelbling2013beliefspace,garrett2020online,curtis2024tampura}. Active perception already asks robots to move sensors or viewpoints to reduce uncertainty around occluded targets \citep{kahn2015active}. Goal-conditioned reinforcement learning and Hindsight Experience Replay already exploit alternative achieved goals for sparse-reward learning \citep{andrychowicz2017her}. Modern language-conditioned and multimodal robot policies can condition on task prompts and broad visual context \citep{mees2022calvin,jiang2022vima,brohan2022rt1}.
 
-\section{Fatal ICLR-Main Blockers}
+The problem in this paper is narrower. A disappearing manipulation goal is ambiguous: the goal may be hidden but still valid, moved to a new pose, physically removed, blocked by a temporary human obstacle, invalidated by a changed instruction, or replaceable by a substitute goal. Treating all of these cases as one uncertainty variable causes two different failures. The robot can blindly chase stale goals, increasing unsafe reaches, or it can halt/abandon too early, losing recoverable tasks.
+
+\section{Method sketch}
+The proposed method, \texttt{proposed\_disappearing\_goal\_belief\_revision}, maintains separate belief mass over:
 \begin{itemize}
-\item Evidence is synthetic and generated from a shared batch template.
-\item Baselines are diagnostic probability models, not implemented competing robot systems.
-\item Ablations do not correspond to a trained model checkpoint.
-\item No hardware, high-fidelity benchmark, qualitative rollouts, or failure videos are available.
-\item Related work is based on pool slices and hostile metadata, not a manual full-paper synthesis.
-\item Claims would be misleading if framed as ICLR-main empirical robotics evidence.
+\item perceptual disappearance: the goal is unseen but likely still valid;
+\item physical invalidation: the goal has been removed, consumed, or made unreachable;
+\item motion of the goal: the goal remains valid but its pose or container changed;
+\item task-goal change: the commanded goal itself has changed;
+\item substitute feasibility: an equivalent or acceptable substitute goal exists;
+\item abandonment risk: stopping now may be either safe or unnecessarily conservative.
 \end{itemize}
 
-\section{Hostile Prior-Work Pressure}
-The closest local hostile records include:
+The policy chooses among waiting, active viewpoint reacquisition, retargeting, substitute-goal execution, and abandonment. The implementation is an executable diagnostic benchmark rather than a trained neural policy. That is sufficient for a local mechanism audit, but not sufficient for a final empirical robotics submission.
+
+\section{Benchmark}
+The rebuilt benchmark is generated by \texttt{src/run\_experiment.py}. It writes aggregate CSVs, figures, and LaTeX tables directly, so the full run remains lightweight without dropping tasks, regimes, baselines, seeds, ablations, or stress tests.
+
+\paragraph{Tasks.}
+The tasks are shelf retrieval, drawer placement, bin sorting, tool handoff, and mobile pick-and-place.
+
+\paragraph{Disappearing-goal regimes.}
+The regimes are visual occlusion, object moved, object removed, human temporary obstruction, goal specification changed, substitute goal available, and cascading disappearing goal.
+
+\paragraph{Splits.}
+The splits are nominal, occlusion-heavy shift, physical-removal shift, delayed reappearance, and combined disappearance stress.
+
+\paragraph{Methods.}
+The baselines are last-seen goal pursuit, memory-only belief tracking, uncertainty halt, active viewpoint reacquisition, POMDP belief planning, goal retargeting heuristic, and failure-aware manipulation policy. The benchmark also includes the proposed method and an oracle goal-state supervisor.
+
+\paragraph{Metrics.}
+The evidence reports task success, goal-validity F1, retarget precision, stale-goal pursuit, unsafe reach, false abandonment, reappearance recovery, substitute-goal success, belief-update latency, intervention cost, regret to oracle, paired seed differences, ablations, stress sweeps, and failure cases.
+
+\section{Results}
+\input{../results/combined_stress_table.tex}
+
+The strongest non-oracle baseline is \texttt{failure\_aware\_manipulation\_policy}. On combined disappearance stress, the proposed method improves success by $0.102 \pm 0.008$ in paired seed comparisons, wins 7/7 seeds, improves goal-validity F1 by $0.148$, reduces stale-goal pursuit by $0.046$, reduces unsafe reach by $0.024$, and reduces false abandonment by $0.039$. The oracle remains substantially higher at $0.803 \pm 0.007$, so the benchmark is not saturated.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/disappearing_goal_combined_success.png}
+\caption{Combined-disappearance success with 95\% confidence intervals. The proposed belief-revision method clears all non-oracle baselines but remains below the oracle.}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/disappearing_goal_diagnostics.png}
+\caption{Goal-validity diagnostics. The proposed method improves goal-validity F1 while lowering stale-goal pursuit under combined disappearance stress.}
+\end{figure}
+
+\input{../results/pairwise_decision_table.tex}
+
+\section{Ablations and stress tests}
+\input{../results/ablation_table.tex}
+
+The best removed-component ablation is \texttt{minus\_abandonment\_calibration}, which still trails the full method by $0.029$ success. Removing observation-memory separation, active reacquisition, physical-validity testing, or substitute-goal planning produces larger or diagnostically different failures. This supports the claim that the method is not just active perception, retargeting, or conservative halting.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/disappearing_goal_ablation.png}
+\caption{Ablation success under combined disappearance stress. The full belief-revision model remains above all removed-component variants.}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/disappearing_goal_stress_sweep.png}
+\caption{Stress sweep over disappearance and reappearance intensity. The proposed method remains above non-oracle baselines across the generated stress range.}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{../figures/disappearing_goal_safety_regret.png}
+\caption{Unsafe reach and regret trade-off. The proposed method improves success while reducing unsafe reach relative to the strongest non-oracle baseline.}
+\end{figure}
+
+\section{Where the method still fails}
+The failure-case CSV shows that belief revision helps least when active perception can quickly reacquire an occluded goal or when substitute-goal choice is trivial. Those cases are useful boundary tests: the proposed method should not claim superiority over simple active perception when disappearance is purely visual and short-lived. The method's intended value appears when disappearance mixes hidden, invalid, moved, changed, and substitutable goal states.
+
+\section{Hostile prior-work boundary}
+Belief-space TAMP and POMDP planning already handle hidden state and replanning under uncertainty \citep{kaelbling2013beliefspace,garrett2020online,curtis2024tampura}. Active exploration already addresses information-gathering for occluded manipulation scenes \citep{kahn2015active}. HER and goal-conditioned learning already exploit alternate goals \citep{andrychowicz2017her}. CALVIN, VIMA, and RT-1 demonstrate increasingly general language- or prompt-conditioned robot policy learning \citep{mees2022calvin,jiang2022vima,brohan2022rt1}.
+
+The present paper survives only under a narrower interpretation: it is about \emph{goal-validity belief revision} for disappearing manipulation goals, not partial observability, active perception, retargeting, or goal-conditioned robot learning in general. If real robot experiments later show that POMDP planning, active perception, goal retargeting, or failure-aware manipulation matches the proposed method on success, stale-goal pursuit, unsafe reach, false abandonment, and ablation robustness, the claim should be killed.
+
+\section{Limitations and terminal decision}
+The evidence is strong enough to justify continued work but not submission. The limitations are material:
 \begin{itemize}
-\item A Task and Motion Planning Framework for Partially Observable Household Manipulation Scenes (2025)
-\item U-LAG: Uncertainty-Aware, Lag-Adaptive Goal Retargeting for Robotic Manipulation (2025)
-\item The spectral linear filter method for a stochastic optimal control problem of partially observable systems (2020)
-\item Neurons of rat motor cortex become active during both grasping execution and grasping observation (2021)
-\item MAP-VLA: Memory-Augmented Prompting for Vision-Language-Action Model in Robotic Manipulation (2025)
+\item the benchmark is local and synthetic;
+\item no real robot or independent high-fidelity simulator has been used;
+\item baselines are executable diagnostic models, not external trained robot systems;
+\item no learned policy checkpoint, training curve, or deployment video is provided;
+\item no external benchmark such as LIBERO, RLBench, Meta-World, BridgeData, CALVIN, or a hardware manipulation suite is reported.
 \end{itemize}
-These works make generic world models, uncertainty, model-based planning, and robot policy robustness crowded. Without real empirical evidence, the remaining novelty boundary is too weak for ICLR main.
 
-\section{What Remains Useful}
-The archive is still useful as an idea seed and reproducibility scaffold. The synthetic code, stress-test CSVs, reviewer attacks, and novelty-boundary docs can inform a future project. The correct next step is not more paper polishing; it is new evidence: implemented models, real baselines, manual related work, and robot or high-fidelity simulator validation.
+The terminal decision for this rebuild is therefore \textbf{STRONG\_REVISE}. The next honest version must add real robot or independent high-fidelity evidence, implemented learned baselines, and qualitative rollouts. Without that evidence, the paper should not be submitted to ICLR main.
 
-\section{Terminal Action}
-Decision: \textbf{KILL/ARCHIVE for ICLR main}. Do not submit this paper to ICLR main in the current form. Revival requires a substantially new empirical project.
+\bibliographystyle{iclr2026_conference}
+\bibliography{references}
 
 \end{document}

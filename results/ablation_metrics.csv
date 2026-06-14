@@ -1,6 +1,8 @@
-ablation,combined_stress_mean_success,ci95_success,interpretation
-full_proposed_branch_mechanism,0.6686,0.0146,all components
-minus_branch_atlas,0.5581,0.0220,removes explicit unrealized futures
-minus_tail_risk_objective,0.5783,0.0142,uses mean predicted value only
-minus_diagnostic_probe,0.5943,0.0104,does not actively test ambiguous physical modes
-minus_failure_memory,0.6045,0.0215,does not reuse repaired beliefs
+ablation,mean_mean_success,ci95_mean_success,mean_mean_goal_validity_f1,ci95_mean_goal_validity_f1,mean_mean_retarget_precision,ci95_mean_retarget_precision,mean_mean_stale_goal_pursuit,ci95_mean_stale_goal_pursuit,mean_mean_unsafe_reach,ci95_mean_unsafe_reach,mean_mean_false_abandonment,ci95_mean_false_abandonment,mean_mean_reappearance_recovery,ci95_mean_reappearance_recovery,mean_mean_substitute_goal_success,ci95_mean_substitute_goal_success,mean_mean_belief_update_latency,ci95_mean_belief_update_latency,mean_mean_intervention_cost,ci95_mean_intervention_cost,groups,interpretation
+active_perception_only,0.5,0.0058,0.3855,0.0017,0.273,0.002,0.186,0.0058,0.0818,0.0036,0.0913,0.0058,0.3265,0.0088,0.2243,0.0049,0.8219,0.0023,0.2496,0.0007,7,active viewpoint reacquisition baseline
+full_disappearing_goal_belief_revision,0.6651,0.0039,0.5858,0.0018,0.5314,0.0028,0.0815,0.0055,0.0375,0.003,0.049,0.0024,0.39,0.0078,0.4619,0.0051,0.6694,0.0015,0.2469,0.0016,7,all components
+minus_abandonment_calibration,0.6357,0.0054,0.5666,0.0014,0.5089,0.0016,0.1114,0.0038,0.0668,0.0024,0.079,0.0043,0.37,0.0065,0.4236,0.006,0.6844,0.0019,0.2332,0.0008,7,over-pursues invalid goals or over-abandons hidden goals
+minus_active_reacquisition,0.5718,0.0081,0.5191,0.0014,0.4871,0.0019,0.0971,0.0051,0.0509,0.0021,0.09,0.0027,0.2588,0.0056,0.4163,0.0084,0.7323,0.0031,0.1926,0.0011,7,does not actively test occluded goals
+minus_observation_memory_separation,0.5904,0.0056,0.4399,0.0016,0.4527,0.0019,0.1208,0.0037,0.0482,0.0029,0.0753,0.0034,0.3181,0.0066,0.4064,0.0053,0.7884,0.0015,0.2371,0.0012,7,confounds unseen goals with invalid goals
+minus_physical_validity_test,0.5655,0.0054,0.4436,0.0016,0.4063,0.001,0.139,0.0055,0.0682,0.0032,0.0771,0.0038,0.3552,0.0037,0.3298,0.0088,0.7716,0.0017,0.2456,0.0011,7,cannot distinguish hidden from physically invalid
+minus_substitute_goal_planner,0.5959,0.0069,0.5541,0.0017,0.3716,0.0028,0.1174,0.004,0.0552,0.0021,0.0606,0.0027,0.3501,0.0083,0.3168,0.0037,0.694,0.0019,0.2051,0.001,7,cannot choose substitute goals
