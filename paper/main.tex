@@ -5,15 +5,18 @@
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{microtype}
 
-\title{Disappearing Goal Manipulation via Goal-Validity Belief Revision}
+\raggedbottom
+
+\title{Disappearing Goals in Manipulation via Belief Revision}
 \author{Anonymous Authors}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Robot manipulation policies often treat a last-seen goal as valid until execution fails. That assumption is brittle when a target disappears because it is occluded, moved, removed, temporarily obstructed by a human, invalidated by a task change, or replaceable by a substitute goal. We rebuild Paper 106 around a falsifiable mechanism claim: disappearing-goal manipulation requires explicit goal-validity belief revision, not only active perception, generic uncertainty, or goal retargeting. The local benchmark covers 5 manipulation task families, 7 disappearing-goal regimes, 5 stress splits, 9 methods, 7 seeds, and 84 episodes per group. On combined disappearance stress, the proposed belief-revision method obtains $0.662 \pm 0.009$ success versus $0.561 \pm 0.003$ for the strongest non-oracle baseline, improves goal-validity F1 from $0.439$ to $0.586$, reduces stale-goal pursuit from $0.133$ to $0.087$, and reduces unsafe reach from $0.063$ to $0.039$. Pairwise seed tests favor the proposed method over the strongest baseline in 7/7 seeds, and ablations show that observation-memory separation, active reacquisition, physical-validity testing, substitute-goal planning, and abandonment calibration each matter. The terminal decision is \textbf{STRONG\_REVISE}: the local evidence supports the mechanism, but the paper is not ICLR-main-ready until validated on real robots or independent high-fidelity benchmarks.
+Robot manipulation policies often treat a last-seen goal as valid until execution fails. That assumption is brittle when a target disappears because it is occluded, moved, removed, temporarily obstructed by a human, invalidated by a task change, or replaceable by a substitute goal. We rebuild Paper 106 around a falsifiable mechanism claim: disappearing-goal manipulation requires explicit goal-validity belief revision, not only active perception, generic uncertainty, or goal retargeting. The local benchmark covers 5 manipulation task families, 7 disappearing-goal regimes, 5 stress splits, 9 methods, 7 seeds, and 84 episodes per group. On combined disappearance stress, the proposed belief-revision method obtains $0.662 \pm 0.009$ success versus $0.561 \pm 0.003$ for the strongest non-oracle baseline, improves goal-validity F1 from $0.439$ to $0.586$, reduces stale-goal pursuit from $0.133$ to $0.087$, and reduces unsafe reach from $0.063$ to $0.039$. Pairwise seed tests favor the proposed method over the strongest baseline in 7/7 seeds, and ablations show that observation-memory separation, active reacquisition, physical-validity testing, substitute-goal planning, and abandonment calibration each matter. A 2026-06-15 continuation audit reran the full benchmark and preserved the terminal decision: \textbf{STRONG\_REVISE}. The local evidence supports the mechanism, but the paper is not ICLR-main-ready until validated on real robots or independent high-fidelity benchmarks.
 \end{abstract}
 
 \section{Motivation}
@@ -55,7 +58,9 @@ The evidence reports task success, goal-validity F1, retarget precision, stale-g
 \section{Results}
 \input{../results/combined_stress_table.tex}
 
-The strongest non-oracle baseline is \texttt{failure\_aware\_manipulation\_policy}. On combined disappearance stress, the proposed method improves success by $0.102 \pm 0.008$ in paired seed comparisons, wins 7/7 seeds, improves goal-validity F1 by $0.148$, reduces stale-goal pursuit by $0.046$, reduces unsafe reach by $0.024$, and reduces false abandonment by $0.039$. The oracle remains substantially higher at $0.803 \pm 0.007$, so the benchmark is not saturated.
+The strongest non-oracle baseline is \texttt{failure\_aware\_manipulation\_policy}. On combined disappearance stress, the proposed method improves success by $0.102 \pm 0.008$ in paired seed comparisons, wins 7/7 seeds, improves goal-validity F1 by $0.148$, reduces stale-goal pursuit by $0.046$, reduces unsafe reach by $0.024$, and reduces false abandonment by $0.039$. The oracle remains substantially higher at $0.803 \pm 0.007$, so the benchmark is not saturated. The proposed method does increase intervention cost from $0.226$ to $0.247$ relative to the strongest non-oracle baseline; this should be read as a safety and goal-validity tradeoff rather than a free efficiency gain.
+
+At maximum stress level $0.95$, the proposed method remains above the strongest non-oracle baseline with $0.661 \pm 0.007$ success versus $0.547 \pm 0.009$, higher goal-validity F1 ($0.571$ versus $0.422$), lower stale-goal pursuit ($0.088$ versus $0.143$), lower unsafe reach ($0.038$ versus $0.065$), lower false abandonment ($0.054$ versus $0.097$), and lower belief-update latency ($0.700$ versus $0.823$). This is still local evidence rather than external validation.
 
 \begin{figure}[t]
 \centering
@@ -114,7 +119,10 @@ The evidence is strong enough to justify continued work but not submission. The 
 
 The terminal decision for this rebuild is therefore \textbf{STRONG\_REVISE}. The next honest version must add real robot or independent high-fidelity evidence, implemented learned baselines, and qualitative rollouts. Without that evidence, the paper should not be submitted to ICLR main.
 
+\begingroup
+\raggedright
 \bibliographystyle{iclr2026_conference}
 \bibliography{references}
+\endgroup
 
 \end{document}
