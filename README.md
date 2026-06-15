@@ -1,12 +1,14 @@
 # 106 Disappearing Goal Manipulation
 
-Submission-hardening version: v4
+Submission-hardening version: v4.1
 
 Terminal decision: STRONG_REVISE for an ICLR-main-target paper, not ready-to-submit.
 
-This rebuild replaces the v3 archive with a paper-specific disappearing-goal manipulation benchmark. The central claim is that a robot policy should distinguish goals that are merely hidden from goals that have moved, been removed, changed, or become replaceable by a substitute goal. The proposed method, `proposed_disappearing_goal_belief_revision`, maintains goal-validity belief state and chooses among waiting, active reacquisition, retargeting, substitute-goal execution, or abandonment.
+This rebuild replaces the v3 archive with a paper-specific disappearing-goal manipulation benchmark. The 2026-06-15 continuation audit reran the full benchmark from source and preserved the terminal decision. The central claim is that a robot policy should distinguish goals that are merely hidden from goals that have moved, been removed, changed, or become replaceable by a substitute goal. The proposed method, `proposed_disappearing_goal_belief_revision`, maintains goal-validity belief state and chooses among waiting, active reacquisition, retargeting, substitute-goal execution, or abandonment.
 
-The local evidence supports the mechanism. On combined disappearance stress, the proposed method reaches `0.662 +/- 0.009` success versus `0.561 +/- 0.003` for the strongest non-oracle baseline, `failure_aware_manipulation_policy`. It also improves goal-validity F1 from `0.439` to `0.586`, reduces stale-goal pursuit from `0.133` to `0.087`, wins 7/7 paired seeds, and survives all removed-component ablations.
+The local evidence supports the mechanism. On combined disappearance stress, the proposed method reaches `0.662 +/- 0.009` success versus `0.561 +/- 0.003` for the strongest non-oracle baseline, `failure_aware_manipulation_policy`. It also improves goal-validity F1 from `0.439` to `0.586`, reduces stale-goal pursuit from `0.133` to `0.087`, reduces unsafe reach from `0.063` to `0.039`, wins 7/7 paired seeds, and survives all removed-component ablations. Intervention cost increases from `0.226` to `0.247`, so the claim should be framed as a safety/validity tradeoff rather than a free efficiency gain.
+
+At maximum stress level `0.95`, the proposed method reaches `0.661 +/- 0.007` success versus `0.547 +/- 0.009` for the strongest non-oracle baseline while keeping lower stale-goal pursuit, unsafe reach, false abandonment, and belief-update latency.
 
 The honest limitation is still material: this is a local executable diagnostic benchmark, not real robot or independently validated high-fidelity simulator evidence. The paper should be revised with external robot validation before main-track submission.
 

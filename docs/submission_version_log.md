@@ -23,3 +23,13 @@
 - Added goal-validity F1, retarget precision, stale-goal pursuit, unsafe reach, false abandonment, reappearance recovery, substitute-goal success, latency, intervention cost, regret, paired tests, ablations, stress sweeps, failure cases, figures, and LaTeX tables.
 - Rewrote docs and manuscript around the actual evidence.
 - Terminal decision: STRONG_REVISE.
+
+## v4.1 - Continuation Submission Audit
+
+- Added `docs/paper106_iclr_submission_execution_plan_20260615.md`.
+- Reran `src/run_experiment.py` from source with the full benchmark and logged the run at `logs/106_disappearing_goal_manipulation_continuation_rerun_20260615.log`.
+- Verified expected CSV coverage and finite numeric outputs.
+- Reconfirmed the strongest non-oracle baseline as `failure_aware_manipulation_policy`.
+- Disclosed the intervention-cost tradeoff while preserving the stronger success/diagnostic/safety result.
+- Added terminal audit docs and rebuilt the numbered Downloads PDF.
+- Terminal decision: STRONG_REVISE; ICLR main ready: no.
