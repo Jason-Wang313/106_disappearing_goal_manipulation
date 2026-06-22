@@ -1,64 +1,895 @@
-@article{kaelbling2013beliefspace,
-  title={Integrated Task and Motion Planning in Belief Space},
-  author={Kaelbling, Leslie Pack and Lozano-Perez, Tomas},
-  journal={The International Journal of Robotics Research},
-  volume={32},
-  number={9-10},
-  pages={1194--1227},
-  year={2013}
+@inproceedings{kaelbling2013beliefspace,
+  title = {Integrated Task and Motion Planning in Belief Space},
+  author = {Kaelbling, Leslie Pack and Lozano-Perez, Tomas},
+  booktitle = {International Symposium on Robotics Research},
+  year = {2013}
 }
 
-@inproceedings{garrett2020online,
-  title={Online Replanning in Belief Space for Partially Observable Task and Motion Problems},
-  author={Garrett, Caelan Reed and Lozano-Perez, Tomas and Kaelbling, Leslie Pack},
-  booktitle={IEEE International Conference on Robotics and Automation},
-  year={2020}
-}
-
-@misc{curtis2024tampura,
-  title={TAMPURA: Task and Motion Planning Under Uncertainty and Risk},
-  author={Curtis, Aidan and Khurana, Rohan and Silver, Tom and Lozano-Perez, Tomas and Kaelbling, Leslie Pack},
-  year={2024},
-  eprint={2403.10454},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO}
-}
-
-@inproceedings{kahn2015active,
-  title={Active Exploration Using Trajectory Optimization for Robotic Grasping in the Presence of Occlusions},
-  author={Kahn, Gregory and Villaflor, Adam and Ding, Bosen and Abbeel, Pieter},
-  booktitle={IEEE International Conference on Robotics and Automation},
-  year={2015}
+@inproceedings{garrett2020pddlstream,
+  title = {{PDDLStream}: Integrating Symbolic Planners and Blackbox Samplers via Optimistic Adaptive Planning},
+  author = {Garrett, Caelan Reed and Lozano-Perez, Tomas and Kaelbling, Leslie Pack},
+  booktitle = {ICAPS},
+  year = {2020},
+  url = {https://arxiv.org/abs/1802.08705}
 }
 
 @inproceedings{andrychowicz2017her,
-  title={Hindsight Experience Replay},
-  author={Andrychowicz, Marcin and Wolski, Filip and Ray, Alex and Schneider, Jonas and Fong, Rachel and Welinder, Peter and McGrew, Bob and Tobin, Josh and Abbeel, Pieter and Zaremba, Wojciech},
-  booktitle={Advances in Neural Information Processing Systems},
-  year={2017}
+  title = {Hindsight Experience Replay},
+  author = {Andrychowicz, Marcin and Wolski, Filip and Ray, Alex and Schneider, Jonas and Fong, Rachel and Welinder, Peter and McGrew, Bob and Tobin, Josh and Abbeel, Pieter and Zaremba, Wojciech},
+  booktitle = {NeurIPS},
+  year = {2017}
+}
+
+@inproceedings{kahn2015active,
+  title = {Active Exploration Using Trajectory Optimization for Robotic Grasping in the Presence of Occlusions},
+  author = {Kahn, Gregory and Villaflor, Adam and Pong, Vitchyr and Abbeel, Pieter and Levine, Sergey},
+  booktitle = {ICRA},
+  year = {2015}
+}
+
+@inproceedings{zeng2021transporter,
+  title = {Transporter Networks: Rearranging the Visual World for Robotic Manipulation},
+  author = {Zeng, Andy and Florence, Pete and Tompson, Jonathan and Welker, Stefan and Chien, Jonathan and Attarian, Maria and Armstrong, Travis and Krasin, Ivan and Duong, Dan and Sindhwani, Vikas and Lee, Johnny},
+  booktitle = {CoRL},
+  year = {2021}
+}
+
+@article{brohan2022rt1,
+  title = {{RT-1}: Robotics Transformer for Real-World Control at Scale},
+  author = {Brohan, Anthony and Brown, Noah and Carbajal, Justice and Chebotar, Yevgen and Chen, Xi and Choromanski, Krzysztof and Ding, Tianli and Driess, Danny and Dubey, Avinava and Finn, Chelsea and Florence, Pete and Fu, Chuyuan and Arenas, Montse Gonzalez and Gopalakrishnan, Keerthana and Han, Kehang and Hausman, Karol and Herzog, Alexander and Hsu, Jasmine and Ichter, Brian and Irpan, Alex and Joshi, Nikhil and Julian, Ryan and Kalashnikov, Dmitry and Kuang, Yuheng and Leal, Isabel and Lee, Kuang-Huei and Levine, Sergey and Lu, Yao and Michalewski, Henryk and Mordatch, Igor and Pertsch, Karl and Rao, Kanishka and Reymann, Karla and Ryoo, Michael and Salazar, Grecia and Sanketi, Pannag and Sermanet, Pierre and Singh, Jaspiar and Singh, Anikait and Soricut, Radu and Tran, Huong and Vanhoucke, Vincent and Vuong, Quan and Wahid, Ayzaan and Welker, Stefan and Wohlhart, Paul and Wu, Jialin and Xia, Fei and Xiao, Ted and Xu, Peng and Xu, Sichun and Yan, Mengyuan and Zitkovich, Brianna},
+  journal = {arXiv preprint arXiv:2212.06817},
+  year = {2022}
 }
 
 @inproceedings{mees2022calvin,
-  title={CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks},
-  author={Mees, Oier and Hermann, Lukas and Rosete-Beas, Erick and Burgard, Wolfram},
-  booktitle={IEEE Robotics and Automation Letters},
-  year={2022}
+  title = {{CALVIN}: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks},
+  author = {Mees, Oier and Hermann, Lukas and Rosete-Beas, Eric and Burgard, Wolfram},
+  booktitle = {IEEE Robotics and Automation Letters},
+  year = {2022}
 }
 
-@misc{jiang2022vima,
-  title={VIMA: General Robot Manipulation with Multimodal Prompts},
-  author={Jiang, Yunfan and Gupta, Agrim and Zhang, Zichen and Wang, Guanzhi and Dou, Yifeng and Chen, Yanjie and Fei-Fei, Li and Anandkumar, Anima and Zhu, Yuke and Fan, Linxi},
-  year={2022},
-  eprint={2210.03094},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO}
+@inproceedings{jiang2022vima,
+  title = {{VIMA}: General Robot Manipulation with Multimodal Prompts},
+  author = {Jiang, Yunfan and Gupta, Agrim and Zhang, Zichen and Wang, Guanzhi and Dou, Yifeng and Chen, Yanjun and Fei-Fei, Li and Anandkumar, Anima and Zhu, Yuke and Fan, Linxi},
+  booktitle = {ICML},
+  year = {2023}
 }
 
-@misc{brohan2022rt1,
-  title={RT-1: Robotics Transformer for Real-World Control at Scale},
-  author={Brohan, Anthony and Brown, Noah and Carbajal, Justice and Chebotar, Yevgen and Chen, Xi and Choromanski, Krzysztof and Ding, Tianli and Driess, Danny and Dubey, Avinava and Finn, Chelsea and Florence, Pete and Fu, Chuyuan and Arenas, Montse Gonzalez and Gopalakrishnan, Kehang and Han, Kehang and Hausman, Karol and Herzog, Alex and Hsu, Jasmine and Ichter, Brian and Irpan, Alex and Joshi, Nikhil and Julian, Ryan and Kalashnikov, Dmitry and Kuang, Yuheng and Lee, Isabel and Levine, Sergey and Lu, Yao and Parada, Carolina and Pastor, Peter and Quiambao, John and Rao, Kanishka and Rettinghouse, Igor and Reyes, Diego and Sermanet, Pierre and Sievers, Nicholas and Tan, Clayton and Toshev, Alexander and Vanhoucke, Vincent and Xia, Fei and Xiao, Ted and Xu, Peng and Xu, Sichun and Yu, Mengyuan and Zitkovich, Brianna},
-  year={2022},
-  eprint={2212.06817},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO}
+@inproceedings{mandlekar2021robomimic,
+  title = {What Matters in Learning from Offline Human Demonstrations for Robot Manipulation},
+  author = {Mandlekar, Ajay and Xu, Danfei and Wong, Josiah and Nasiriany, Soroush and Wang, Chen and Kulkarni, Rohun and Fei-Fei, Li and Savarese, Silvio and Zhu, Yuke and Martin-Martin, Roberto},
+  booktitle = {CoRL},
+  year = {2021}
+}
+
+@article{thananjeyan2021recovery,
+  title = {Recovery RL: Safe Reinforcement Learning with Learned Recovery Zones},
+  author = {Thananjeyan, Brijen and Balakrishna, Ashwin and Nair, Suraj and Luo, Michael and Srinivasan, Krishnan and Hwang, Minho and Gonzalez, Joseph E. and Ibarz, Julian and Finn, Chelsea and Goldberg, Ken},
+  journal = {IEEE Robotics and Automation Letters},
+  year = {2021}
+}
+
+@article{ma2025a1,
+  title = {A Task and Motion Planning Framework for Partially Observable Household Manipulation Scenes},
+  author = {Yuhong Ma and  Yeqing Yuan and  Shaoquan Wu and  Han Yuan},
+  year = {2025},
+  journal = {Advanced Intelligent Systems},
+  doi = {10.1002/aisy.202400897},
+  url = {https://doi.org/10.1002/aisy.202400897}
+}
+
+@article{butepage2019from2,
+  title = {From Visual Understanding to Complex Object Manipulation},
+  author = {Judith Butepage and  Silvia Cruciani and  Mia Kokic and  Michael Welle and  Danica Kragic},
+  year = {2019},
+  journal = {Annual Review of Control, Robotics, and Autonomous Systems},
+  doi = {10.1146/annurev-control-053018-023735},
+  url = {https://doi.org/10.1146/annurev-control-053018-023735}
+}
+
+@article{liu2022towards3,
+  title = {Towards a balancing safety against performance approach in humanrobot co-manipulation for door-closing emergencies},
+  author = {Chuande Liu and  Chuang Yu and  Bingtuan Gao and  Syed Awais Ali Shah and  Adriana Tapus},
+  year = {2022},
+  journal = {Complex \& Intelligent Systems},
+  doi = {10.1007/s40747-021-00420-y},
+  url = {https://doi.org/10.1007/s40747-021-00420-y}
+}
+
+@article{pan2024task4,
+  title = {Task and Motion Planning for Execution in the Real},
+  author = {Tianyang Pan and  Rahul Shome and  Lydia E. Kavraki},
+  year = {2024},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2406.03641v2}
+}
+
+@article{sui2017goaldirected5,
+  title = {Goal-directed robot manipulation through axiomatic scene estimation},
+  author = {Zhiqiang Sui and  Lingzhu Xiang and  Odest C Jenkins and  Karthik Desingh},
+  year = {2017},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/0278364916683444},
+  url = {https://doi.org/10.1177/0278364916683444}
+}
+
+@article{koenig1998xavier6,
+  title = {Xavier: a robot navigation architecture based on partially observable Markov decision process models},
+  author = {Sven Koenig and  Reid Simmons},
+  year = {1998},
+  journal = {openalex},
+  url = {https://openalex.org/W1991622981}
+}
+
+@article{h2025ulag7,
+  title = {U-LAG: Uncertainty-Aware, Lag-Adaptive Goal Retargeting for Robotic Manipulation},
+  author = {Anamika J H and  Anujith Muraleedharan},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2510.02526v1}
+}
+
+@article{liu2026activevla8,
+  title = {ActiveVLA: Injecting Active Perception into Vision-Language-Action Models for Precise 3D Robotic Manipulation},
+  author = {Zhenyang Liu and  Yongchong Gu and  Yikai Wang and  Xiangyang Xue and  Yanwei Fu},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2601.08325v1}
+}
+
+@article{chowdhury2025lagea9,
+  title = {LAGEA: Language Guided Embodied Agents for Robotic Manipulation},
+  author = {Abdul Monaf Chowdhury and  Akm Moshiur Rahman Mazumder and  Rabeya Akter and  Safaeid Hossain Arib},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2509.23155v2}
+}
+
+@article{kakroudi2026a10,
+  title = {A Conversational Framework for Human-Robot Collaborative Manipulation with Distributed Generative AI models},
+  author = {Arash Ghasemzadeh Kakroudi and  Roel Pieters},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2606.06061v1}
+}
+
+@article{zhaole2023dexdlo11,
+  title = {DexDLO: Learning Goal-Conditioned Dexterous Policy for Dynamic Manipulation of Deformable Linear Objects},
+  author = {Sun Zhaole and  Jihong Zhu and  Robert B. Fisher},
+  year = {2023},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2312.15204v1}
+}
+
+@article{poupart2015approximate12,
+  title = {Approximate Linear Programming for Constrained Partially Observable Markov Decision Processes},
+  author = {Pascal Poupart and  Aarti Malhotra and  Pei Pei and  Kee-Eung Kim and  Bongseok Goh and  Michael Bowling},
+  year = {2015},
+  journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  doi = {10.1609/aaai.v29i1.9655},
+  url = {https://doi.org/10.1609/aaai.v29i1.9655}
+}
+
+@article{matsumoto2022goaldirected13,
+  title = {Goal-Directed Planning and Goal Understanding by Extended Active Inference: Evaluation through Simulated and Physical Robot Experiments},
+  author = {Takazumi Matsumoto and  Wataru Ohata and  Fabien Benureau and  Jun Tani},
+  year = {2022},
+  journal = {Entropy},
+  doi = {10.3390/e24040469},
+  url = {https://doi.org/10.3390/e24040469}
+}
+
+@article{carr2021safe14,
+  title = {Safe Policies for Factored Partially Observable Stochastic Games},
+  author = {Steven Carr and  Nils Jansen and  Suda Bharadwaj and  Matthijs T. J. Spaan and  Ufuk Topcu},
+  year = {2021},
+  journal = {openalex},
+  doi = {10.15607/rss.2021.xvii.079},
+  url = {https://doi.org/10.15607/rss.2021.xvii.079}
+}
+
+@article{garrett2020online15,
+  title = {Online Replanning in Belief Space for Partially Observable Task and Motion Problems},
+  author = {Caelan Reed Garrett and  Chris Paxton and  Tomas Lozano-Perez and  Leslie Pack Kaelbling and  Dieter Fox},
+  year = {2020},
+  journal = {2020 IEEE International Conference on Robotics and Automation (ICRA)},
+  doi = {10.1109/icra40945.2020.9196681},
+  url = {https://doi.org/10.1109/icra40945.2020.9196681}
+}
+
+@article{dastider2025crossembodiment16,
+  title = {Cross-Embodiment Robotic Manipulation Synthesis via Guided Demonstrations through CycleVAE and Human Behavior Transformer},
+  author = {Apan Dastider and  Hao Fang and  Mingjie Lin},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2503.08622v1}
+}
+
+@article{herse2024simulation17,
+  title = {Simulation Evidence of Trust Calibration: Using POMDP with Signal Detection Theory to Adapt Agent Features for Optimised Task Outcome During Human-Agent Collaboration},
+  author = {Sarita Herse and  Jonathan Vitale and  Mary-Anne Williams},
+  year = {2024},
+  journal = {International Journal of Social Robotics},
+  doi = {10.1007/s12369-023-01041-w},
+  url = {https://doi.org/10.1007/s12369-023-01041-w}
+}
+
+@article{karami2009partially18,
+  title = {Partially Observable Markov Decision Process for Managing Robot Collaboration with Human},
+  author = {Abir Karami and  Laurent Jeanpierre and  AbdelIllah Mouaddib},
+  year = {2009},
+  journal = {openalex},
+  doi = {10.1109/ictai.2009.61},
+  url = {https://doi.org/10.1109/ictai.2009.61}
+}
+
+@article{thach2023defgoalnet19,
+  title = {DefGoalNet: Contextual Goal Learning from Demonstrations For Deformable Object Manipulation},
+  author = {Bao Thach and  Tanner Watts and  Shing-Hei Ho and  Tucker Hermans and  Alan Kuntz},
+  year = {2023},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2309.14463v1}
+}
+
+@article{gui2024goalgrasp20,
+  title = {GoalGrasp: Grasping Goals in Partially Occluded Scenarios without Grasp Training},
+  author = {Shun Gui and  Kai Gui and  Yan Luximon},
+  year = {2024},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2405.04783v2}
+}
+
+@article{wolfe2010combined21,
+  title = {Combined Task and Motion Planning for Mobile Manipulation},
+  author = {Jason Wolfe and  Bhaskara Marthi and  Stuart Russell},
+  year = {2010},
+  journal = {Proceedings of the International Conference on Automated Planning and Scheduling},
+  doi = {10.1609/icaps.v20i1.13436},
+  url = {https://doi.org/10.1609/icaps.v20i1.13436}
+}
+
+@article{quinteropena2022humanguided22,
+  title = {Human-Guided Motion Planning in Partially Observable Environments},
+  author = {Carlos Quintero-Pena and  Constantinos Chamzas and  Zhanyi Sun and  Vaibhav Unhelkar and  Lydia E. Kavraki},
+  year = {2022},
+  journal = {2022 International Conference on Robotics and Automation (ICRA)},
+  doi = {10.1109/icra46639.2022.9811893},
+  url = {https://doi.org/10.1109/icra46639.2022.9811893}
+}
+
+@article{chen2025goalvla23,
+  title = {Goal-VLA: Image-Generative VLMs as Object-Centric World Models Empowering Zero-shot Robot Manipulation},
+  author = {Haonan Chen and  Jingxiang Guo and  Bangjun Wang and  Tianrui Zhang and  Xuchuan Huang and  Boren Zheng and  Yiwen Hou and  Chenrui Tie and  Jiajun Deng and  Lin Shao},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2506.23919v3}
+}
+
+@article{omidshafiei2017decentralized24,
+  title = {Decentralized control of multi-robot partially observable Markov decision processes using belief space macro-actions},
+  author = {Shayegan Omidshafiei and  AliAkbar AghaMohammadi and  Christopher Amato and  ShihYuan Liu and  Jonathan P How and  John Vian},
+  year = {2017},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/0278364917692864},
+  url = {https://doi.org/10.1177/0278364917692864}
+}
+
+@article{curtis2024partially25,
+  title = {Partially Observable Task and Motion Planning with Uncertainty and Risk Awareness},
+  author = {Aidan Curtis and  George Matheos and  Nishad Gothoskar and  Vikash Mansinghka and  Joshua Tenenbaum and  Tomas Lozano-Perez and  Leslie Kaelbling},
+  year = {2024},
+  journal = {Robotics: Science and Systems XX},
+  doi = {10.15607/rss.2024.xx.118},
+  url = {https://doi.org/10.15607/rss.2024.xx.118}
+}
+
+@article{yuan2026roboforge26,
+  title = {RoboForge: Physically Optimized Text-guided Whole-Body Locomotion for Humanoids},
+  author = {Xichen Yuan and  Zhe Li and  Bofan Lyu and  Kuangji Zuo and  Yanshuo Lu and  Gen Li and  Jianfei Yang},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2603.17927v2}
+}
+
+@article{potts2023poststroke27,
+  title = {Post-stroke deficits in the anticipatory control and bimanual coordination during naturalistic cooperative bimanual action},
+  author = {Cory A. Potts and  Shailesh S. Kantak},
+  year = {2023},
+  journal = {Journal of NeuroEngineering and Rehabilitation},
+  doi = {10.1186/s12984-023-01257-x},
+  url = {https://doi.org/10.1186/s12984-023-01257-x}
+}
+
+@article{zhang2025dthrl28,
+  title = {DT-HRL: Mastering Long-Sequence Manipulation with Reimagined Hierarchical Reinforcement Learning},
+  author = {Junyang Zhang and  Yilin Zhang and  Honglin Sun and  Yifei Zhang and  Kenji Hashimoto},
+  year = {2025},
+  journal = {Biomimetics},
+  doi = {10.3390/biomimetics10090577},
+  url = {https://doi.org/10.3390/biomimetics10090577}
+}
+
+@article{sui2015axiomatic29,
+  title = {Axiomatic particle filtering for goal-directed robotic manipulation},
+  author = {Zhiqiang Sui and  Odest Chadwicke Jenkins and  Karthik Desingh},
+  year = {2015},
+  journal = {openalex},
+  doi = {10.1109/iros.2015.7354006},
+  url = {https://doi.org/10.1109/iros.2015.7354006}
+}
+
+@article{theocharous2003approximate30,
+  title = {Approximate planning with hierarchical partially observable Markov decision process models for robot navigation},
+  author = {Georgios Theocharous and  Sridhar Mahadevan},
+  year = {2003},
+  journal = {openalex},
+  doi = {10.1109/robot.2002.1014730},
+  url = {https://doi.org/10.1109/robot.2002.1014730}
+}
+
+@article{arkin2020multimodal31,
+  title = {Multimodal estimation and communication of latent semantic knowledge for robust execution of robot instructions},
+  author = {Jacob Arkin and  Daehyung Park and  Subhro Roy and  Matthew R Walter and  Nicholas Roy and  Thomas M Howard and  Rohan Paul},
+  year = {2020},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/0278364920917755},
+  url = {https://doi.org/10.1177/0278364920917755}
+}
+
+@article{krishna2026ghost32,
+  title = {GHOST: Hierarchical Sub-Goal Policies for Generalizing Robot Manipulation},
+  author = {Sriram Krishna and  Ben Eisner and  Haotian Zhan and  Ying Yuan and  Haoyu Zhen and  Chuang Gan and  Shubham Tulsiani and  David Held},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2606.10025v1}
+}
+
+@article{wang2026partially33,
+  title = {Partially Observable Adversarial Patch Attacks on Vision-Language-Action Models in Robotics},
+  author = {Xiaofei Wang and  Mingliang Han and  Tianyu Hao and  Yi Yang and  Yun-Bo Zhao and  Keke Tang},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2606.03556v1}
+}
+
+@article{openai2021asymmetric34,
+  title = {Asymmetric self-play for automatic goal discovery in robotic manipulation},
+  author = {OpenAI OpenAI and  Matthias Plappert and  Raul Sampedro and  Tao Xu and  Ilge Akkaya and  Vineet Kosaraju and  Peter Welinder and  Ruben D'Sa and  Arthur J Petron and  Henrique Ponde de Oliveira Pinto and  Alex Paino and  Hyeonwoo Noh and  Lilian Weng and  Qiming Yuan and  Casey Chu and  Wojciech Zaremba},
+  year = {2021},
+  journal = {arXiv (Cornell University)},
+  doi = {10.48550/arxiv.2101.04882},
+  url = {https://doi.org/10.48550/arxiv.2101.04882}
+}
+
+@article{liu2017learning35,
+  title = {Learning for multi-robot cooperation in partially observable stochastic environments with macro-actions},
+  author = {Miao Liu and  Kavinayan Sivakumar and  Shayegan Omidshafiei and  Christopher Amato and  Jonathan P. How},
+  year = {2017},
+  journal = {openalex},
+  doi = {10.1109/iros.2017.8206001},
+  url = {https://doi.org/10.1109/iros.2017.8206001}
+}
+
+@article{pham2024adaptive36,
+  title = {Adaptive Compensation for Robotic Joint Failures Using Partially Observable Reinforcement Learning},
+  author = {Tan-Hanh Pham and  Godwyll Aikins and  Tri Truong and  KimDoang Nguyen},
+  year = {2024},
+  journal = {Algorithms},
+  doi = {10.3390/a17100436},
+  url = {https://doi.org/10.3390/a17100436}
+}
+
+@article{kalithasan2024learning37,
+  title = {Learning to Recover from Plan Execution Errors during Robot Manipulation: A Neuro-symbolic Approach},
+  author = {Namasivayam Kalithasan and  Arnav Tuli and  Vishal Bindal and  Himanshu Gaurav Singh and  Parag Singla and  Rohan Paul},
+  year = {2024},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2405.18948v1}
+}
+
+@article{bassily2014intuitive38,
+  title = {Intuitive and Adaptive Robotic Arm Manipulation using the Leap Motion Controller},
+  author = {David Bassily and  C. Georgoulas and  Joerg Guettler and  Thomas Linner and  Thomas Bock},
+  year = {2014},
+  journal = {mediaTUM  the media and publications repository of the Technical University Munich (Technical University Munich)},
+  url = {https://openalex.org/W151252481}
+}
+
+@article{guo2026moeact39,
+  title = {MoE-ACT: Scaling Multi-Task Bimanual Manipulation with Sparse Language-Conditioned Mixture-of-Experts Transformers},
+  author = {Kangjun Guo and  Haichao Liu and  Yanji Sun and  Ruhan Zhao and  Jinni Zhou and  Jun Ma},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2603.15265v1}
+}
+
+@article{jiang2025rethinking40,
+  title = {Rethinking Bimanual Robotic Manipulation: Learning with Decoupled Interaction Framework},
+  author = {Jian-Jian Jiang and  Xiao-Ming Wu and  Yi-Xiang He and  Ling-An Zeng and  Yi-Lin Wei and  Dandan Zhang and  Wei-Shi Zheng},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2503.09186v2}
+}
+
+@article{wang2025chainofmodality41,
+  title = {Chain-of-Modality: Learning Manipulation Programs from Multimodal Human Videos with Vision-Language-Models},
+  author = {Chen Wang and  Fei Xia and  Wenhao Yu and  Tingnan Zhang and  Ruohan Zhang and  C. Karen Liu and  Li Fei-Fei and  Jie Tan and  Jacky Liang},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2504.13351v1}
+}
+
+@article{welte2026flowcorrect42,
+  title = {FlowCorrect: Efficient Interactive Correction of Generative Flow Policies for Robotic Manipulation},
+  author = {Edgar Welte and  Yitian Shi and  Rosa Wolf and  Maximillian Gilles and  Rania Rayyes},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2602.22056v2}
+}
+
+@article{xue2026tube43,
+  title = {Tube Diffusion Policy: Reactive Visual-Tactile Policy Learning for Contact-rich Manipulation},
+  author = {Teng Xue and  Alberto Rigo and  Bingjian Huang and  Jiayi Shen and  Zhengtong Xu and  Nick Colonnese and  Amirhossein H. Memar},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2604.23609v1}
+}
+
+@article{alizadeh2014learning44,
+  title = {Learning from demonstrations with partially observable task parameters},
+  author = {Tohid Alizadeh and  Sylvain Calinon and  Darwin G. Caldwell},
+  year = {2014},
+  journal = {2014 IEEE International Conference on Robotics and Automation (ICRA)},
+  doi = {10.1109/icra.2014.6907335},
+  url = {https://doi.org/10.1109/icra.2014.6907335}
+}
+
+@article{strazzeri2021topological45,
+  title = {Topological representation of cloth state for robot manipulation},
+  author = {Fabio Strazzeri and  Carme Torras},
+  year = {2021},
+  journal = {Autonomous Robots},
+  doi = {10.1007/s10514-021-09968-7},
+  url = {https://doi.org/10.1007/s10514-021-09968-7}
+}
+
+@article{jang2023murm46,
+  title = {MURM: Utilization of Multi-Views for Goal-Conditioned Reinforcement Learning in Robotic Manipulation},
+  author = {Seongwon Jang and  Hyemi Jeong and  Hyunseok Yang},
+  year = {2023},
+  journal = {Robotics},
+  doi = {10.3390/robotics12040119},
+  url = {https://doi.org/10.3390/robotics12040119}
+}
+
+@article{kim2022goalconditioned47,
+  title = {Goal-conditioned dual-action imitation learning for dexterous dual-arm robot manipulation},
+  author = {Heecheol Kim and  Yoshiyuki Ohmura and  Yasuo Kuniyoshi},
+  year = {2022},
+  journal = {arXiv},
+  doi = {10.1109/tro.2024.3372778},
+  url = {http://arxiv.org/abs/2203.09749v3}
+}
+
+@article{niehues2015compliance48,
+  title = {Compliance in parallel to actuators for improving stability of robotic hands during grasping and manipulation},
+  author = {Taylor D. Niehues and  Prashant Rao and  Ashish D. Deshpande},
+  year = {2015},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/0278364914558016},
+  url = {https://doi.org/10.1177/0278364914558016}
+}
+
+@article{mannucci2024extending49,
+  title = {Extending Reward-based Hierarchical Task Network Planning to Partially Observable Environments},
+  author = {Tommaso Mannucci and  Robert Zimmermann and  Christian Frese},
+  year = {2024},
+  journal = {2024 10th International Conference on Automation, Robotics and Applications (ICARA)},
+  doi = {10.1109/icara60736.2024.10552916},
+  url = {https://doi.org/10.1109/icara60736.2024.10552916}
+}
+
+@article{davare2019sensorimotor50,
+  title = {Sensorimotor uncertainty modulates corticospinal excitability during skilled object manipulation},
+  author = {Marco Davare and  Pranav J. Parikh and  Marco Santello},
+  year = {2019},
+  journal = {Journal of Neurophysiology},
+  doi = {10.1152/jn.00800.2018},
+  url = {https://doi.org/10.1152/jn.00800.2018}
+}
+
+@article{contreras2026probabilistic51,
+  title = {Probabilistic Human Intent Prediction for Mobile Manipulation: An Evaluation with Human-Inspired Constraints},
+  author = {Cesar Alan Contreras and  Manolis Chiou and  Alireza Rastegarpanah and  Michal Szulik and  Rustam Stolkin},
+  year = {2026},
+  journal = {Journal of Intelligent \& Robotic Systems},
+  doi = {10.1007/s10846-026-02362-4},
+  url = {https://doi.org/10.1007/s10846-026-02362-4}
+}
+
+@article{ilhan2026enhancing52,
+  title = {Enhancing user perception through haptic feedback during aerial manipulation},
+  author = {Rza Ilhan},
+  year = {2026},
+  journal = {Industrial Robot: the international journal of robotics research and application},
+  doi = {10.1108/ir-06-2025-0210},
+  url = {https://doi.org/10.1108/ir-06-2025-0210}
+}
+
+@article{staroverov2023skill53,
+  title = {Skill Fusion in Hybrid Robotic Framework for Visual Object Goal Navigation},
+  author = {Aleksei Staroverov and  Kirill Muravyev and  Konstantin Yakovlev and  Aleksandr I. Panov},
+  year = {2023},
+  journal = {Robotics},
+  doi = {10.3390/robotics12040104},
+  url = {https://doi.org/10.3390/robotics12040104}
+}
+
+@article{galaiya2023exploring54,
+  title = {Exploring Tactile Temporal Features for Object Pose Estimation during Robotic Manipulation},
+  author = {Viral Rasik Galaiya and  Mohammed Asfour and  Thiago Eustaquio Alves de Oliveira and  Xianta Jiang and  Vinicius Prado da Fonseca},
+  year = {2023},
+  journal = {Sensors},
+  doi = {10.3390/s23094535},
+  url = {https://doi.org/10.3390/s23094535}
+}
+
+@article{li2025mapvla55,
+  title = {MAP-VLA: Memory-Augmented Prompting for Vision-Language-Action Model in Robotic Manipulation},
+  author = {Runhao Li and  Wenkai Guo and  Zhenyu Wu and  Changyuan Wang and  Haoyuan Deng and  Zhenyu Weng and  Yap-Peng Tan and  Ziwei Wang},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2511.09516v1}
+}
+
+@article{shi2022enhanced56,
+  title = {Enhanced Spatial Attention Graph for Motion Planning in Crowded, Partially Observable Environments},
+  author = {Weixian Shi and  Yanying Zhou and  Xiangyu Zeng and  Shijie Li and  Maren Bennewitz},
+  year = {2022},
+  journal = {2022 International Conference on Robotics and Automation (ICRA)},
+  doi = {10.1109/icra46639.2022.9812322},
+  url = {https://doi.org/10.1109/icra46639.2022.9812322}
+}
+
+@article{zhitnikov2025no57,
+  title = {No compromise in solution quality: Speeding up belief-dependent continuous partially observable Markov decision processes via adaptive multilevel simplification},
+  author = {Andrey Zhitnikov and  Ori Sztyglic and  Vadim Indelman},
+  year = {2025},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/02783649241261398},
+  url = {https://doi.org/10.1177/02783649241261398}
+}
+
+@article{adil2025a58,
+  title = {A multi-robot collaborative manipulation framework for dynamic and obstacle-dense environments: integration of deep learning for real-time task execution},
+  author = {Afnan Ahmed Adil and  Saber Sakhrieh and  Jinane Mounsef and  Noel Maalouf},
+  year = {2025},
+  journal = {Frontiers in Robotics and AI},
+  doi = {10.3389/frobt.2025.1585544},
+  url = {https://doi.org/10.3389/frobt.2025.1585544}
+}
+
+@article{shamsah2023integrated59,
+  title = {Integrated Task and Motion Planning for Safe Legged Navigation in Partially Observable Environments},
+  author = {Abdulaziz Shamsah and  Zhaoyuan Gu and  Jonas Warnke and  Seth Hutchinson and  Ye Zhao},
+  year = {2023},
+  journal = {IEEE Transactions on Robotics},
+  doi = {10.1109/tro.2023.3299524},
+  url = {https://doi.org/10.1109/tro.2023.3299524}
+}
+
+@article{chi2024iterative60,
+  title = {Iterative residual policy: For goal-conditioned dynamic manipulation of deformable objects},
+  author = {Cheng Chi and  Benjamin Burchfiel and  Eric Cousineau and  Siyuan Feng and  Shuran Song},
+  year = {2024},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/02783649231201201},
+  url = {https://doi.org/10.1177/02783649231201201}
+}
+
+@article{xiang2021recent61,
+  title = {Recent Advances in Deep Reinforcement Learning Applications for Solving Partially Observable Markov Decision Processes (POMDP) Problems: Part 1Fundamentals and Applications in Games, Robotics and Natural Language Processing},
+  author = {Xuanchen Xiang and  Simon Foo},
+  year = {2021},
+  journal = {Machine Learning and Knowledge Extraction},
+  doi = {10.3390/make3030029},
+  url = {https://doi.org/10.3390/make3030029}
+}
+
+@article{kalithasan2022learning62,
+  title = {Learning Neuro-symbolic Programs for Language Guided Robot Manipulation},
+  author = {Namasivayam Kalithasan and  Himanshu Singh and  Vishal Bindal and  Arnav Tuli and  Vishwajeet Agrawal and  Rahul Jain and  Parag Singla and  Rohan Paul},
+  year = {2022},
+  journal = {arXiv},
+  doi = {10.1109/icra48891.2023.10160545},
+  url = {http://arxiv.org/abs/2211.06652v2}
+}
+
+@article{haramati2024entitycentric63,
+  title = {Entity-Centric Reinforcement Learning for Object Manipulation from Pixels},
+  author = {Dan Haramati and  Tal Daniel and  Aviv Tamar},
+  year = {2024},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2404.01220v1}
+}
+
+@article{kurniawati2022partially64,
+  title = {Partially Observable Markov Decision Processes and Robotics},
+  author = {Hanna Kurniawati},
+  year = {2022},
+  journal = {Annual Review of Control, Robotics, and Autonomous Systems},
+  doi = {10.1146/annurev-control-042920-092451},
+  url = {https://doi.org/10.1146/annurev-control-042920-092451}
+}
+
+@article{wang2026instantfold65,
+  title = {Instant-Fold: In-Context Imitation Learning for Deformable Object Manipulation},
+  author = {Yilong Wang and  Cheng Qian and  Edward Johns},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2606.04269v1}
+}
+
+@article{han2023learning66,
+  title = {Learning robotic manipulation skills with multiple semantic goals by conservative curiosity-motivated exploration},
+  author = {Changlin Han and  Zhiyong Peng and  Yadong Liu and  Jingsheng Tang and  Yang Yu and  Zongtan Zhou},
+  year = {2023},
+  journal = {Frontiers in Neurorobotics},
+  doi = {10.3389/fnbot.2023.1089270},
+  url = {https://doi.org/10.3389/fnbot.2023.1089270}
+}
+
+@article{endo2008anticipatory67,
+  title = {Anticipatory robot control for a partially observable environment using episodic memories},
+  author = {Yoichiro Endo},
+  year = {2008},
+  journal = {openalex},
+  doi = {10.1109/robot.2008.4543642},
+  url = {https://doi.org/10.1109/robot.2008.4543642}
+}
+
+@article{baraglia2016initiative68,
+  title = {Initiative in Robot Assistance during Collaborative Task Execution},
+  author = {Jimmy Baraglia and  Maya Cakmak and  Yukie Nagai and  Rajesh P. N. Rao and  Minoru Asada},
+  year = {2016},
+  journal = {Human-Robot Interaction},
+  doi = {10.5555/2906831.2906844},
+  url = {https://doi.org/10.5555/2906831.2906844}
+}
+
+@article{sun2023interactive69,
+  title = {Interactive Planning Using Large Language Models for Partially Observable Robotics Tasks},
+  author = {Lingfeng Sun and  Devesh K. Jha and  Chiori Hori and  Siddarth Jain and  Radu Corcodel and  Xinghao Zhu and  Masayoshi Tomizuka and  Diego Romeres},
+  year = {2023},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2312.06876v1}
+}
+
+@article{baraglia2016initiative70,
+  title = {Initiative in robot assistance during collaborative task execution},
+  author = {Jimmy Baraglia and  Maya Cakmak and  Yukie Nagai and  Rajesh P. N. Rao and  Minoru Asada},
+  year = {2016},
+  journal = {2016 11th ACM/IEEE International Conference on Human-Robot Interaction (HRI)},
+  doi = {10.1109/hri.2016.7451735},
+  url = {https://doi.org/10.1109/hri.2016.7451735}
+}
+
+@article{simmons1995probabilistic71,
+  title = {Probabilistic robot navigation in partially observable environments},
+  author = {Reid Simmons and  Sven Koenig},
+  year = {1995},
+  journal = {openalex},
+  url = {https://openalex.org/W73143588}
+}
+
+@article{sun2024interactive72,
+  title = {Interactive Planning Using Large Language Models for Partially Observable Robotic Tasks},
+  author = {Lingfeng Sun and  Devesh K. Jha and  Chiori Hori and  Siddarth Jain and  Radu Corcodel and  Xinghao Zhu and  Masayoshi Tomizuka and  Diego Romeres},
+  year = {2024},
+  journal = {openalex},
+  doi = {10.1109/icra57147.2024.10610981},
+  url = {https://doi.org/10.1109/icra57147.2024.10610981}
+}
+
+@article{bakker2003reinforcement73,
+  title = {Reinforcement learning in partially observable mobile robot domains using unsupervised event extraction},
+  author = {Boudewijn Bakker and  Fredrik Linaker and  Jurgen Schmidhuber},
+  year = {2003},
+  journal = {openalex},
+  doi = {10.1109/irds.2002.1041511},
+  url = {https://doi.org/10.1109/irds.2002.1041511}
+}
+
+@article{sanchez2020reposing74,
+  title = {Re-posing Objects Considering Bipedal Stability Constraints: An Approach for Stability Preservation During Humanoid Manipulation},
+  author = {Daniel Sanchez and  Weiwei Wan and  Fumio Kanehiro and  Kensuke Harada},
+  year = {2020},
+  journal = {International Journal of Humanoid Robotics},
+  doi = {10.1142/s021984362050005x},
+  url = {https://doi.org/10.1142/s021984362050005x}
+}
+
+@article{fang2026force75,
+  title = {Force Policy: Learning Hybrid Force-Position Control Policy under Interaction Frame for Contact-Rich Manipulation},
+  author = {Hongjie Fang and  Shirun Tang and  Mingyu Mei and  Haoxiang Qin and  Zihao He and  Jingjing Chen and  Ying Feng and  Chenxi Wang and  Wanxi Liu and  Zaixing He and  Cewu Lu and  Shiquan Wang},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2602.22088v2}
+}
+
+@article{xue2025reactive76,
+  title = {Reactive Diffusion Policy: Slow-Fast Visual-Tactile Policy Learning for Contact-Rich Manipulation},
+  author = {Han Xue and  Jieji Ren and  Wendi Chen and  Gu Zhang and  Yuan Fang and  Guoying Gu and  Huazhe Xu and  Cewu Lu},
+  year = {2025},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2503.02881v3}
+}
+
+@article{jiang2026robowmbench77,
+  title = {RoboWM-Bench: A Benchmark for Evaluating World Models in Robotic Manipulation},
+  author = {Feng Jiang and  Yang Chen and  Kyle Xu and  Yuchen Liu and  Haifeng Wang and  Zhenhao Shen and  Jasper Lu and  Shengze Huang and  Yuanfei Wang and  Chen Xie and  Ruihai Wu},
+  year = {2026},
+  journal = {arXiv},
+  url = {http://arxiv.org/abs/2604.19092v2}
+}
+
+@article{chu2017adaptive78,
+  title = {Adaptive reactionless control strategy via the PSO-ELM algorithm for free-floating space robots during manipulation of unknown objects},
+  author = {Zhongyi Chu and  Ye Ma and  Jing Cui},
+  year = {2017},
+  journal = {Nonlinear Dynamics},
+  doi = {10.1007/s11071-017-3947-6},
+  url = {https://doi.org/10.1007/s11071-017-3947-6}
+}
+
+@article{berenson2009manipulation79,
+  title = {Manipulation planning with Workspace Goal Regions},
+  author = {Dmitry Berenson and  Siddhartha S. Srinivasa and  Dave Ferguson and  Alvaro Collet and  James J. Kuffner},
+  year = {2009},
+  journal = {2009 IEEE International Conference on Robotics and Automation},
+  doi = {10.1109/robot.2009.5152401},
+  url = {https://doi.org/10.1109/robot.2009.5152401}
+}
+
+@article{puthumanaillam2024weathering80,
+  title = {Weathering Ongoing Uncertainty: Learning and Planning in a Time-Varying Partially Observable Environment},
+  author = {Gokul Puthumanaillam and  Xiangyu Liu and  Negar Mehr and  Melkior Ornik},
+  year = {2024},
+  journal = {2024 IEEE International Conference on Robotics and Automation (ICRA)},
+  doi = {10.1109/icra57147.2024.10610954},
+  url = {https://doi.org/10.1109/icra57147.2024.10610954}
+}
+
+@article{fujimurandchoosing81,
+  title = {Choosing safety or success: Fall-avoidance preference limits goal achievement during whole-body movements},
+  author = {Taisei Fujimura and  Shota Hagio and  Motoki Kouzaki},
+  year = {2026},
+  journal = {crossref},
+  doi = {10.1101/2025.07.02.662696},
+  url = {https://doi.org/10.1101/2025.07.02.662696}
+}
+
+@article{admoni2014deliberate82,
+  title = {Deliberate delays during robot-to-human handovers improve compliance with gaze communication},
+  author = {Henny Admoni and  Anca D. Dragan and  Siddhartha S Srinivasa and  Brian Scassellati},
+  year = {2014},
+  journal = {openalex},
+  doi = {10.1145/2559636.2559682},
+  url = {https://doi.org/10.1145/2559636.2559682}
+}
+
+@article{nguyen2025quasistatic83,
+  title = {Quasi-static contact-rich manipulation using dynamic movement primitives and haptic potential map},
+  author = {Huu-Thiet Nguyen and  Lin Yang and  Chen Lv and  Domenico Campolo},
+  year = {2025},
+  journal = {Data-Centric Engineering},
+  doi = {10.1017/dce.2025.10021},
+  url = {https://doi.org/10.1017/dce.2025.10021}
+}
+
+@article{lemai2004interleaving84,
+  title = {Interleaving temporal planning and execution in robotics domains},
+  author = {Solange Lemai and  Felix Ingrand},
+  year = {2004},
+  journal = {openalex},
+  url = {https://openalex.org/W1522168222}
+}
+
+@article{manzone2022facilitation85,
+  title = {Facilitation of tactile processing during action observation of goal-directed reach and grasp movements},
+  author = {Damian M. Manzone and  Luc Tremblay},
+  year = {2022},
+  journal = {Journal of Neurophysiology},
+  doi = {10.1152/jn.00236.2022},
+  url = {https://doi.org/10.1152/jn.00236.2022}
+}
+
+@article{rossi2019cognitive86,
+  title = {Cognitive Robotic Architecture for Semi-Autonomous Execution of Manipulation Tasks in a Surgical Environment},
+  author = {Giacomo De Rossi and  Marco Minelli and  Alessio Sozzi and  Nicola Piccinelli and  Federica Ferraguti and  Francesco Setti and  Marcello Bonfe and  Cristian Secchi and  Riccardo Muradore},
+  year = {2019},
+  journal = {openalex},
+  doi = {10.1109/iros40897.2019.8967667},
+  url = {https://doi.org/10.1109/iros40897.2019.8967667}
+}
+
+@article{wang2023goalconditioned87,
+  title = {Goal-Conditioned Action Space Reduction for Deformable Object Manipulation},
+  author = {Shengyin Wang and  Rafael Papallas and  Matteo Leonetti and  Mehmet Dogar},
+  year = {2023},
+  journal = {2023 IEEE International Conference on Robotics and Automation (ICRA)},
+  doi = {10.1109/icra48891.2023.10161541},
+  url = {https://doi.org/10.1109/icra48891.2023.10161541}
+}
+
+@article{javdani2018shared88,
+  title = {Shared autonomy via hindsight optimization for teleoperation and teaming},
+  author = {Shervin Javdani and  Henny Admoni and  Stefania Pellegrinelli and  Siddhartha S. Srinivasa and  J. Andrew Bagnell},
+  year = {2018},
+  journal = {The International Journal of Robotics Research},
+  doi = {10.1177/0278364918776060},
+  url = {https://doi.org/10.1177/0278364918776060}
+}
+
+@article{rensndgrasping89,
+  title = {Grasping with a twist: Dissociating action goals from motor actions in human frontoparietal circuits},
+  author = {Guy Rens and  Teresa D. Figley and  Jason P. Gallivan and  Yuqi Liu and  Jody C. Culham},
+  year = {2026},
+  journal = {crossref},
+  doi = {10.1101/2023.01.02.522486},
+  url = {https://doi.org/10.1101/2023.01.02.522486}
+}
+
+@article{leemiller2019hand90,
+  title = {Hand forces and placement are modulated and covary during anticipatory control of bimanual manipulation},
+  author = {Trevor Lee-Miller and  Marco Santello and  Andrew M. Gordon},
+  year = {2019},
+  journal = {Journal of Neurophysiology},
+  doi = {10.1152/jn.00760.2018},
+  url = {https://doi.org/10.1152/jn.00760.2018}
+}
+
+@article{liu2023softgpt91,
+  title = {SoftGPT: Learn Goal-Oriented Soft Object Manipulation Skills by Generative Pre-Trained Heterogeneous Graph Transformer},
+  author = {Junjia Liu and  Zhihao Li and  Wanyu Lin and  Sylvain Calinon and  Kay Chen Tan and  Fei Chen},
+  year = {2023},
+  journal = {2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  doi = {10.1109/iros55552.2023.10341846},
+  url = {https://doi.org/10.1109/iros55552.2023.10341846}
+}
+
+@article{shao2020partially92,
+  title = {Partially Observable Minimum-Age Scheduling: The Greedy Policy},
+  author = {Yulin Shao and  Qi Cao and  Soung Chang Liew and  He Chen},
+  year = {2020},
+  journal = {arXiv (Cornell University)},
+  doi = {10.48550/arxiv.2009.13441},
+  url = {https://doi.org/10.48550/arxiv.2009.13441}
+}
+
+@article{schneider2019torqueplanning93,
+  title = {Torque-planning errors affect the perception of object properties and sensorimotor memories during object manipulation in uncertain grasp situations},
+  author = {Thomas Rudolf Schneider and  Gavin Buckingham and  Joachim Hermsdorfer},
+  year = {2019},
+  journal = {Journal of Neurophysiology},
+  doi = {10.1152/jn.00710.2018},
+  url = {https://doi.org/10.1152/jn.00710.2018}
+}
+
+@article{lin2022manipulation94,
+  title = {Manipulation Planning From Demonstration Via Goal-Conditioned Prior Action Primitive Decomposition and Alignment},
+  author = {Nan Lin and  Yuxuan Li and  Keke Tang and  Yujun Zhu and  Xiayu Zhang and  Ruolin Wang and  Jianmin Ji and  Xiaoping Chen and  Xinming Zhang},
+  year = {2022},
+  journal = {IEEE Robotics and Automation Letters},
+  doi = {10.1109/lra.2021.3140127},
+  url = {https://doi.org/10.1109/lra.2021.3140127}
+}
+
+@article{hanafusa2020mechanical95,
+  title = {Mechanical Impedance Control of Cooperative Robot During Object Manipulation Based on External Force Estimation Using Recurrent Neural Network},
+  author = {Misaki Hanafusa and  Jun Ishikawa},
+  year = {2020},
+  journal = {Unmanned Systems},
+  doi = {10.1142/s230138502050017x},
+  url = {https://doi.org/10.1142/s230138502050017x}
 }

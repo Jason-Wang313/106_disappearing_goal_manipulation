@@ -1,41 +1,31 @@
 # 106 Disappearing Goal Manipulation
 
-Submission-hardening version: v4.1
+Submission-hardening version: v5-expanded
 
 Terminal decision: STRONG_REVISE for an ICLR-main-target paper, not ready-to-submit.
 
-This rebuild replaces the v3 archive with a paper-specific disappearing-goal manipulation benchmark. The 2026-06-15 continuation audit reran the full benchmark from source and preserved the terminal decision. The central claim is that a robot policy should distinguish goals that are merely hidden from goals that have moved, been removed, changed, or become replaceable by a substitute goal. The proposed method, `proposed_disappearing_goal_belief_revision`, maintains goal-validity belief state and chooses among waiting, active reacquisition, retargeting, substitute-goal execution, or abandonment.
+This rebuild expands the v4.1 disappearing-goal manipulation audit into a 25-page hostile-review v5 package. The central claim is narrow: robot manipulation policies should separate perceptually hidden goals from physically invalid, moved, semantically changed, temporarily obstructed, delayed-reappearing, or substitutable goals before choosing whether to continue, wait, actively reacquire, retarget, substitute, recover, or abandon.
 
-The local evidence supports the mechanism. On combined disappearance stress, the proposed method reaches `0.662 +/- 0.009` success versus `0.561 +/- 0.003` for the strongest non-oracle baseline, `failure_aware_manipulation_policy`. It also improves goal-validity F1 from `0.439` to `0.586`, reduces stale-goal pursuit from `0.133` to `0.087`, reduces unsafe reach from `0.063` to `0.039`, wins 7/7 paired seeds, and survives all removed-component ablations. Intervention cost increases from `0.226` to `0.247`, so the claim should be framed as a safety/validity tradeoff rather than a free efficiency gain.
+The v5 benchmark uses 6 task families, 8 disappearing-goal regimes, 8 splits, 15 methods, 10 seeds, and 6 episodes per factorial cell. It writes 345,600 main rollout rows, 3,840 dataset-summary rows, 57,600 main group rows, 150 main seed rows, 120 method/split metric rows, 150 hard-aggregate seed rows, 15 hard-aggregate metric rows, 14 hard pairwise comparisons, 115,200 ablation rows, 288,000 stress rows, 276,480 fixed-risk rows, and 24 negative cases.
 
-At maximum stress level `0.95`, the proposed method reaches `0.661 +/- 0.007` success versus `0.547 +/- 0.009` for the strongest non-oracle baseline while keeping lower stale-goal pursuit, unsafe reach, false abandonment, and belief-update latency.
+The strongest non-oracle baseline is `proposed_disappearing_goal_belief_revision_v4`. The v5 method `risk_calibrated_goal_belief_revision_v5` reaches hard-aggregate success `0.77454` versus `0.69618` for v4, goal-validity F1 `0.72880` versus `0.64239`, stale-goal pursuit `0.01238` versus `0.04468`, unsafe reach `0.00087` versus `0.01424`, false abandonment `0.00851` versus `0.03854`, ECE `0.03356`, and utility `0.70495` versus `0.55683`. It passes the frozen success, diagnostic, safety, calibration, utility, pairwise, ablation, stress, and fixed-risk local gates.
 
-The honest limitation is still material: this is a local executable diagnostic benchmark, not real robot or independently validated high-fidelity simulator evidence. The paper should be revised with external robot validation before main-track submission.
+The honest limitation is still material: this is CPU-only local diagnostic evidence, not real robot or independently validated high-fidelity simulator evidence. The scope gate fails because there is no real robot study, accepted high-fidelity benchmark, external disappearing-goal benchmark, trained checkpoint, calibrated deployment log, or rollout video.
 
 ## Reproduce Evidence
 
 ```powershell
 python src\run_experiment.py
-```
-
-Generated artifacts:
-
-- `results/metrics.csv`
-- `results/pairwise_stats.csv`
-- `results/ablation_metrics.csv`
-- `results/stress_sweep.csv`
-- `results/failure_cases.csv`
-- `figures/disappearing_goal_*.png`
-- `paper/main.tex`
-
-## Rebuild PDF
-
-```powershell
+python scripts\generate_manuscript.py
 cd paper
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 bibtex main
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
+cd ..
+python scripts\validate_submission_artifacts.py
 ```
 
 Canonical local PDF: `C:/Users/wangz/Downloads/106.pdf`
+
+Final PDF SHA256: `E458C4C2F2B45D154801EE0D6F614E7097A4262B0AE56BB4360C9040BE825437`

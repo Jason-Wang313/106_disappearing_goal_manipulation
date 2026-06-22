@@ -1,26 +1,29 @@
 # Experiment Rigor Checklist
 
-## v4 Local Evidence
+## v5 Local Evidence
 
-- [x] Paper-specific disappearing-goal benchmark.
-- [x] 5 task families.
-- [x] 7 disappearing-goal regimes.
-- [x] 5 stress splits.
-- [x] 9 methods including strong non-oracle baselines and oracle ceiling.
-- [x] 7 seeds.
-- [x] 84 episodes per task/regime/split/method group.
-- [x] Error bars.
-- [x] Paired seed comparisons.
-- [x] Ablations for observation-memory separation, active reacquisition, physical-validity testing, substitute-goal planning, and abandonment calibration.
-- [x] Stress sweep.
-- [x] Failure cases.
+- [x] Plan-first hostile-review protocol frozen before code execution.
+- [x] 6 task families.
+- [x] 8 disappearing-goal regimes.
+- [x] 8 splits including combined extreme.
+- [x] 15 methods including v4, strong non-oracle baselines, and oracle ceiling.
+- [x] 10 seeds.
+- [x] 345,600 raw main rollout rows.
+- [x] Paired seed comparisons against every comparator.
+- [x] Goal-validity, stale-goal, unsafe-reach, false-abandonment, ECE, regret, and utility metrics.
+- [x] 10 ablations.
+- [x] 10-level stress sweep.
+- [x] 4 fixed-risk deployment budgets.
+- [x] 24 negative and boundary cases.
 - [x] Generated figures and LaTeX tables.
-- [x] Finite CSV audit.
+- [x] 25-page PDF with bright boxed clickable citations.
+- [x] Downloads-only numbered PDF validation.
 
 ## ICLR Main Bar Still Missing
 
 - [ ] Real-robot validation.
-- [ ] Independent high-fidelity simulator benchmark.
+- [ ] Accepted high-fidelity simulator benchmark.
+- [ ] External disappearing-goal benchmark.
 - [ ] Trained learned policy/model checkpoint.
 - [ ] External implemented competing baselines.
 - [ ] Qualitative robot rollouts or videos.
